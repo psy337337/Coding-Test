@@ -1,35 +1,34 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 public class Main {
-	public static void main(String args[]) {
-		int[] score;
-		int max = 0;
-		int num = 0;
-		double last = 0;
-		Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int input;
+		double max = 0;
+		double arr[];
+		double sum = 0;
+		StringTokenizer st;
 		
-		do {
-			score = new int[sc.nextInt()];
-		}while(score.length>1000);
-		for(int i = 0; i < score.length; i++) {
-			do {
-				score[i] = sc.nextInt();
-			}while(score[i] > 100 && score[i] < 0);
-			if(score[i] == 0){
-				num++;
-			}
+		Scanner sc = new Scanner(System.in);
+		input = sc.nextInt();
+		sc.nextLine();
+		
+		st = new StringTokenizer(sc.nextLine());
+		arr = new double[input];
+		
+		for(int i = 0; i < input; i++) {
+			arr[i] = Double.parseDouble(st.nextToken());
+			
+			max = Math.max(arr[i], max);
 		}
-		if(num == score.length) {
-			do {
-				score[score.length-1] = sc.nextInt();
-			}while(score[score.length] == 0);
+		
+		for(int i = 0; i < input; i++) {
+			arr[i] = (arr[i]/max)*100;
+			sum += arr[i];
 		}
-		for(int i = 0; i < score.length; i++) {
-			if(max < score[i])
-				max = score[i];
-		}
-		for(int i = 0; i < score.length; i++) {
-			last += (score[i]/(double)max)*100;
-		}
-		System.out.println(last/score.length);
+		System.out.println(sum/input);
+		
 	}
+
 }

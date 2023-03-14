@@ -60,7 +60,7 @@ public class Main {
 				dfs(nx,ny,h);
 			}
 //			진짜 이해 안되는데 왜 main문에서는 visited[nx][ny]가 접근이 되는데
-//			여기서는 안된다고 지랄하는지 모르겠음
+//			여기서는 안됨
 //			System.out.println(visited[nx][ny]);
 //			if(visited[nx][ny]) continue;
 //			if(arr[nx][ny] > h) dfs(nx,ny,h);
